@@ -1,0 +1,15 @@
+
+  <div>
+    <input formControlName="firstName">
+    <input formControlName="lastName" >
+    <input type="number" formControlName="age">
+    <input type="checkbox" formControlName="canEditeTitle">
+    <div ngFor="let post of posts">
+      <app-posts
+        [title]="post.title"
+        [body]="post.body"
+        [postId]="post.Id"
+      ></app-posts>
+    </div>
+  </div>
+
