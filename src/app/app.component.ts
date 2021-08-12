@@ -34,14 +34,23 @@ export class AppComponent implements OnInit{
   ngOnInit(){
 
   }
-  getUsers(){
+  getUsers() : FormArray {
     return <FormArray>this.usersForm.controls.users
     //this.usersForm.controls.users
   }
   getPosts(i:number){
     return <FormArray>this.usersForm.get(`users.${i}.posts`)
   }
-  toogleTitle(post: AbstractControl, i: number):boolean{
-    return (post as FormGroup).controls.canEditTitle.value
+  toogleTitle(post: AbstractControl):boolean{
+    return !(post as FormGroup).controls.canEditTitle.value
+  }
+  getBody(post: AbstractControl){
+    return (post as FormGroup).controls.body.value
+  }
+  deletePost(userId: number, postId: number): void{
+    //let postId : number = post.value.id;
+    console.log(postId);
+    ((this.getUsers() as FormArray)
+      .get(`${userId}.posts`) as FormArray).removeAt(postId)
   }
 }

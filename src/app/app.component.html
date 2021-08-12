@@ -10,11 +10,18 @@
           <div *ngFor="let post of getPosts(i).controls; let p=index">
             <div [formGroupName]="p">
               <div>
-                <input formControlName="title" [readonly]="toogleTitle(post, p)">
+                <input formControlName="title" [readonly]="toogleTitle(post)">
                 <input formControlName="canEditTitle" type="checkbox">
+                <button (click)="deletePost(i, p)">
+                  Delete
+                </button>
               </div>
               <div>
-                <textarea formControlName="body"></textarea>
+                <textarea
+                  formControlName="body"
+                  [value] = 'getBody(post) | lastChar'
+                  firstChar
+                ></textarea>
               </div>
             </div>
 

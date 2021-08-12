@@ -7,9 +7,13 @@ import { AppComponent } from './app.component';
 //import { PostComponent } from './post/post.component';
 import {ReactiveFormsModule} from '@angular/forms'
 
+import {FirstCharDirective, LastCharPipe} from "./helper"
+
 @NgModule({
   declarations: [
     AppComponent,
+    FirstCharDirective,
+    LastCharPipe
     //UserComponent,
     //PostComponent
   ],
